@@ -1,1 +1,84 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-size: 20px;
+  box-sizing: border-box;
+  background: #f3f2f2;
+}
 
+#main {
+  background-color: #fff;
+  border-radius: 5px;
+  margin: 10% 10%;
+  box-shadow: 3px 3px 3px 3px gray;
+}
+
+hr {
+  border: 0.1px solid #f3f2f2;
+  margin: 0;
+}
+
+h1 {
+  font-size: 22px;
+  font-weight: normal;
+}
+
+input {
+  border: 0;
+  outline: 0;
+  padding: 0.2rem;
+}
+
+input:focus {
+  outline: none !important;
+}
+
+.flex {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.todo-title,
+.todo-edit,
+.todo-check {
+  padding: 1rem 1.5rem;
+}
+
+.checkbox {
+  display: flex;
+  align-items: center;
+}
+
+#to-do-check {
+  margin-right: 1rem;
+}
+
+i {
+  cursor: pointer;
+  color: gray;
+}
+
+.clear-all {
+  padding: 1rem 0;
+  background: #f3f2f2;
+  height: auto;
+  text-align: center;
+}
+
+.clear-all h3 {
+  cursor: pointer;
+  font-weight: normal;
+  color: gray;
+  margin: 0;
+}
+
+.clear-all:hover {
+  text-decoration: underline;
+  color: #000;
+}
+
+::placeholder {
+  font-style: italic;
+  font-size: 20px;
+}

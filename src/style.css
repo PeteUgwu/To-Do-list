@@ -50,6 +50,16 @@ input:focus {
   align-items: center;
 }
 
+.check-icons {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.check-icons .fa-trash {
+  margin-right: 0.4rem;
+}
+
 #to-do-check {
   margin-right: 1rem;
 }

@@ -7,11 +7,11 @@ module.exports = {
   entry: {
     index: "./src/index.js",
   },
-  output: {
-    filename: "main.js",
-    path: path.resolve(__dirname, "dist"),
-    clean: true,
-  },
+  // output: {
+  //   filename: "main.js",
+  //   path: path.resolve(__dirname, "dist"),
+  //   clean: true,
+  // },
   devServer: {
     static: "./dist",
   },

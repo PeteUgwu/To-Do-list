@@ -58,10 +58,6 @@ export default class display {
   static loadTodo = (item) => {
     let display = " ";
     item.forEach((elem, i) => {
-      console.log(elem, "you you");
-      const checked = elem.completed === true;
-      console.log(checked, "you you");
-
       const completed = elem.completed ? "completed" : "";
       display += `
       <div class="todo-check flex">

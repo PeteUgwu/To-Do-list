@@ -4,8 +4,38 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script
+      src="https://kit.fontawesome.com/a2da67af29.js"
+      crossorigin="anonymous"
+    ></script>
     <title>To Do list</title>
   </head>
   <body>
+    <main id="main">
+      <div>
+        <div class="todo-title flex">
+          <h1>Today's To Do</h1>
+          <i class="sync-btn fa-solid fa-rotate"></i>
+        </div>
+        <hr />
+        <div>
+          <section id="todo-form">
+            <div class="todo-edit flex">
+              <input
+                type="text"
+                class="no-outline type-task"
+                placeholder="Add to your list..."
+              />
+              <i class="enter-btn fa-solid fa-right-from-bracket"></i>
+            </div>
+            <hr />
+            <div class="todo-inner"></div>
+            <div class="clear-all">
+              <h3 class="clear">Clear all Completed</h3>
+            </div>
+          </section>
+        </div>
+      </div>
+    </main>
   </body>
 </html>

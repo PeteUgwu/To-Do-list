@@ -1,4 +1,6 @@
 /* eslint-disable quotes */
+import { check } from "./check.js";
+
 const InnerTodo = document.querySelector(".todo-inner");
 let isEdit = false;
 let editId = null;
@@ -24,6 +26,23 @@ export default class display {
     });
   };
 
+  static checkEvent = () => {
+    const toDos = display.getTodo();
+    const todoCheck = document.querySelectorAll(".to-do-check");
+    todoCheck.forEach((task, i) => {
+      const findTodo = toDos.find((item) => i === item.index);
+      task.addEventListener("change", (ev) => {
+        ev.preventDefault();
+        if (!findTodo.completed) {
+          ev.target.parentElement.style.textDecoration = "line-through";
+        } else {
+          ev.target.parentElement.style.textDecoration = "none";
+        }
+        check(toDos, i);
+      });
+    });
+  };
+
   static removeTodo = (id) => {
     const toDos = display.getTodo();
     toDos.splice(id, 1);
@@ -39,12 +58,17 @@ export default class display {
   static loadTodo = (item) => {
     let display = " ";
     item.forEach((elem, i) => {
+      console.log(elem, "you you");
+      const checked = elem.completed === true;
+      console.log(checked, "you you");
+
+      const completed = elem.completed ? "completed" : "";
       display += `
       <div class="todo-check flex">
-      <div class="checkbox">
+      <div class="checkbox ${completed}">
         <input
-          type="checkbox"
-          id="to-do-check"
+          type="checkbox" id="${i}" 
+         class ="to-do-check"
           name="To-Do"
           value="Add" maxlength="10"/>
         <label for="todo">${elem.text}</label><br />
@@ -61,6 +85,7 @@ export default class display {
     InnerTodo.innerHTML = display;
     this.addRemoveEvent();
     this.editEvent();
+    this.checkEvent();
   };
 
   static addTodo = () => {

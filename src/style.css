@@ -60,7 +60,7 @@ input:focus {
   margin-right: 0.4rem;
 }
 
-#to-do-check {
+.to-do-check {
   margin-right: 1rem;
 }
 
@@ -74,6 +74,10 @@ i {
   background: #f3f2f2;
   height: auto;
   text-align: center;
+}
+
+.completed {
+  text-decoration: line-through;
 }
 
 .clear-all h3 {

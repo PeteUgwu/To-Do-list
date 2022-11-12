@@ -27,6 +27,11 @@ export default class display {
   static removeTodo = (id) => {
     const toDos = display.getTodo();
     toDos.splice(id, 1);
+    toDos.forEach((item) => {
+      if (item.index > id) {
+        item.index -= 1;
+      }
+    });
     localStorage.setItem("todo", JSON.stringify(toDos));
     this.loadTodo(toDos);
   };
@@ -63,10 +68,11 @@ export default class display {
     if (text !== "") {
       const toDos = display.getTodo();
       const newInput = { text, completed: false, index: toDos.length };
+      const editInput = { text, completed: false, index: editId };
 
       if (isEdit) {
         const singleTodo = toDos.find((item, index) => index === editId);
-        Object.assign(singleTodo, newInput);
+        Object.assign(singleTodo, editInput);
         localStorage.setItem("todo", JSON.stringify(toDos));
         this.loadTodo(toDos);
         isEdit = false;

@@ -1,5 +1,7 @@
 /* eslint-disable quotes */
 const InnerTodo = document.querySelector(".todo-inner");
+let isEdit = false;
+let editId = null;
 
 export default class display {
   static getTodo = () => {
@@ -46,23 +48,54 @@ export default class display {
       <div class="trash">
       <i class="fa-solid fa-trash" id="${i}"></i>
       </div>
-      <i class=" vertical-menu fa-solid fa-ellipsis-vertical"></i>
+      <i class="edit-btn vertical-menu fa-solid fa-ellipsis-vertical" id="${i}"></i>
       </div>
     </div>
     <hr />`;
     });
     InnerTodo.innerHTML = display;
     this.addRemoveEvent();
+    this.editEvent();
   };
 
   static addTodo = () => {
     const text = document.querySelector(".type-task").value;
     if (text !== "") {
-      const newInput = { text, completed: false };
       const toDos = display.getTodo();
+      const newInput = { text, completed: false, index: toDos.length };
+
+      if (isEdit) {
+        const singleTodo = toDos.find((item, index) => index === editId);
+        Object.assign(singleTodo, newInput);
+        localStorage.setItem("todo", JSON.stringify(toDos));
+        this.loadTodo(toDos);
+        isEdit = false;
+        editId = null;
+        document.querySelector(".type-task").value = "";
+        return;
+      }
       toDos.push(newInput);
       localStorage.setItem("todo", JSON.stringify(toDos));
       this.loadTodo(toDos);
+      document.querySelector(".type-task").value = "";
     }
+  };
+
+  static editTodo = (id) => {
+    const toDos = display.getTodo();
+    const findTodo = toDos.find((item, index) => index === id);
+    document.querySelector(".type-task").value = findTodo.text;
+    isEdit = true;
+    editId = id;
+  };
+
+  static editEvent = () => {
+    const editButton = document.querySelectorAll(".edit-btn");
+    editButton.forEach((task, i) => {
+      task.addEventListener("click", (ev) => {
+        ev.preventDefault();
+        this.editTodo(i);
+      });
+    });
   };
 }

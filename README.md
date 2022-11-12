@@ -1,6 +1,6 @@
 ![](https://img.shields.io/badge/Microverse-blueviolet)
 
-# To Do list: add & remove
+# To Do list: interactive list
 
 > This project is built using webpack and served by a webpack dev server.
 

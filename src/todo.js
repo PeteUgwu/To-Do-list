@@ -1,7 +1,6 @@
 /* eslint-disable quotes */
 import { check } from "./check.js";
 
-// const InnerTodo = document.querySelector(".todo-inner");
 let isEdit = false;
 let editId = null;
 
@@ -56,6 +55,7 @@ export default class Display {
   };
 
   static loadTodo = (item) => {
+    const InnerTodo = document.querySelector(".todo-inner");
     let display = " ";
     item.forEach((elem, i) => {
       const completed = elem.completed ? "completed" : "";

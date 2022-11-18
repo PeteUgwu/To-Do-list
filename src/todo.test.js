@@ -1,8 +1,8 @@
 /** @jest-environment jsdom */
 
-import Display from "./todo.js";
+import Display from './todo.js';
 
-describe("Add new task", () => {
+describe('Add new task', () => {
   beforeEach(() => {
     localStorage.clear();
     jest.clearAllMocks();
@@ -22,26 +22,25 @@ describe("Add new task", () => {
 `;
   });
 
-  test("Adding todo object to the local storage", () => {
-    const addTodoOnSpy = jest.spyOn(Display, "addTodo");
-    const InnerTodo = document.querySelector(".todo-inner");
+  test('Adding todo object to the local storage', () => {
+    const addTodoOnSpy = jest.spyOn(Display, 'addTodo');
     Display.addTodo();
     expect(addTodoOnSpy).toHaveBeenCalledTimes(1);
-    const result = JSON.parse(window.localStorage.getItem("todo"));
+    const result = JSON.parse(window.localStorage.getItem('todo'));
     expect(result.length).toBe(1);
-    expect(result[0].text).toBe("wash clothes");
+    expect(result[0].text).toBe('wash clothes');
   });
 
-  test("Adding task to the DOM", () => {
-    const addTodoOnSpy = jest.spyOn(Display, "addTodo");
+  test('Adding task to the DOM', () => {
+    const addTodoOnSpy = jest.spyOn(Display, 'addTodo');
     Display.addTodo();
     expect(addTodoOnSpy).toHaveBeenCalledTimes(1);
-    const result = document.querySelector(".to-do-check");
+    const result = document.querySelector('.to-do-check');
     expect(result).toBeDefined();
   });
 });
 
-describe("Delete task item", () => {
+describe('Delete task item', () => {
   beforeEach(() => {
     localStorage.clear();
     jest.clearAllMocks();
@@ -69,31 +68,31 @@ describe("Delete task item", () => {
       completed: false,
       index: 2,
     };
-    window.localStorage.setItem("todo", JSON.stringify([obj1, obj2]));
+    window.localStorage.setItem('todo', JSON.stringify([obj1, obj2]));
   });
-  test("Remove task from local storage", () => {
-    const removeTodoOnSpy = jest.spyOn(Display, "removeTodo");
+  test('Remove task from local storage', () => {
+    const removeTodoOnSpy = jest.spyOn(Display, 'removeTodo');
     Display.removeTodo(1);
     expect(removeTodoOnSpy).toHaveBeenCalledTimes(1);
-    let result = JSON.parse(window.localStorage.getItem("todo"));
+    const result = JSON.parse(window.localStorage.getItem('todo'));
     expect(result).toHaveLength(1);
   });
 
-  test("Remove two tasks from local storage", () => {
-    const removeTodoOnSpy = jest.spyOn(Display, "removeTodo");
+  test('Remove two tasks from local storage', () => {
+    const removeTodoOnSpy = jest.spyOn(Display, 'removeTodo');
     Display.removeTodo(0);
     Display.removeTodo(0);
     expect(removeTodoOnSpy).toHaveBeenCalledTimes(2);
-    let result = JSON.parse(window.localStorage.getItem("todo"));
+    const result = JSON.parse(window.localStorage.getItem('todo'));
     expect(result).toHaveLength(0);
   });
 
-  test("Remove tasks from the DOM", () => {
-    const removeTodoOnSpy = jest.spyOn(Display, "removeTodo");
+  test('Remove tasks from the DOM', () => {
+    const removeTodoOnSpy = jest.spyOn(Display, 'removeTodo');
     Display.removeTodo(0);
     Display.removeTodo(0);
     expect(removeTodoOnSpy).toHaveBeenCalledTimes(2);
-    let result = document.querySelector(".to-do-check");
+    const result = document.querySelector('.to-do-check');
     expect(result).toBeNull();
   });
 });

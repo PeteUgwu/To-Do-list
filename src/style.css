@@ -1,9 +1,12 @@
 body {
-  margin: 0;
-  padding: 0;
   font-size: 20px;
   box-sizing: border-box;
   background: #f3f2f2;
+}
+
+* {
+  margin: 0;
+  padding: 0;
 }
 
 #main {
@@ -45,15 +48,13 @@ input:focus {
   padding: 1rem 1.5rem;
 }
 
-.checkbox {
+.flex-2 {
   display: flex;
   align-items: center;
 }
 
 .check-icons {
-  display: flex;
   justify-content: flex-end;
-  align-items: center;
 }
 
 .check-icons .fa-trash {
@@ -65,8 +66,12 @@ input:focus {
 }
 
 i {
-  cursor: pointer;
   color: gray;
+}
+
+i,
+.clear-all h3 {
+  cursor: pointer;
 }
 
 .clear-all {
@@ -81,7 +86,6 @@ i {
 }
 
 .clear-all h3 {
-  cursor: pointer;
   font-weight: normal;
   color: gray;
   margin: 0;

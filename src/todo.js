@@ -1,11 +1,11 @@
 /* eslint-disable quotes */
 import { check } from "./check.js";
 
-const InnerTodo = document.querySelector(".todo-inner");
+// const InnerTodo = document.querySelector(".todo-inner");
 let isEdit = false;
 let editId = null;
 
-export default class display {
+export default class Display {
   static getTodo = () => {
     let Todo;
     if (localStorage.getItem("todo") == null) {
@@ -27,7 +27,7 @@ export default class display {
   };
 
   static checkEvent = () => {
-    const toDos = display.getTodo();
+    const toDos = Display.getTodo();
     const todoCheck = document.querySelectorAll(".to-do-check");
     todoCheck.forEach((task, i) => {
       const findTodo = toDos.find((item) => i === item.index);
@@ -44,7 +44,7 @@ export default class display {
   };
 
   static removeTodo = (id) => {
-    const toDos = display.getTodo();
+    const toDos = Display.getTodo();
     toDos.splice(id, 1);
     toDos.forEach((item) => {
       if (item.index > id) {
@@ -61,7 +61,7 @@ export default class display {
       const completed = elem.completed ? "completed" : "";
       display += `
       <div class="todo-check flex">
-      <div class="checkbox ${completed}">
+      <div class="flex-2 checkbox ${completed}">
         <input
           type="checkbox" id="${i}" 
          class ="to-do-check"
@@ -69,7 +69,7 @@ export default class display {
           value="Add" maxlength="10"/>
         <label for="todo">${elem.text}</label><br />
       </div>
-      <div class= "check-icons">
+      <div class= "check-icons flex-2">
       <div class="trash">
       <i class="fa-solid fa-trash" id="${i}"></i>
       </div>
@@ -87,7 +87,7 @@ export default class display {
   static addTodo = () => {
     const text = document.querySelector(".type-task").value;
     if (text !== "") {
-      const toDos = display.getTodo();
+      const toDos = Display.getTodo();
       const newInput = { text, completed: false, index: toDos.length };
       const editInput = { text, completed: false, index: editId };
 
@@ -109,7 +109,7 @@ export default class display {
   };
 
   static editTodo = (id) => {
-    const toDos = display.getTodo();
+    const toDos = Display.getTodo();
     const findTodo = toDos.find((item, index) => index === id);
     document.querySelector(".type-task").value = findTodo.text;
     isEdit = true;

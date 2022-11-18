@@ -1,6 +1,6 @@
 ![](https://img.shields.io/badge/Microverse-blueviolet)
 
-# To Do list: interactive list
+# To Do list: Add and Remove test with jest
 
 > This project is built using webpack and served by a webpack dev server.
 
@@ -12,6 +12,7 @@
 - Webpack
 - NPM
 - Git and Github
+- Jest
 
 ## Getting Started
 

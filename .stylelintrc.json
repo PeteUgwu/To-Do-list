@@ -30,6 +30,7 @@
   },
   "ignoreFiles": [
     "build/**",
+    "coverage/**",
     "dist/**",
     "**/reset*.css",
     "**/bootstrap*.css",

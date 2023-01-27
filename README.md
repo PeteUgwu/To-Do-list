@@ -25,7 +25,7 @@ Web Browser (Google Chrome recommended)
 
 ## Live Demo
 
-[Live Demo Link]()
+[Live Demo Link](peteugwu.github.io/To-Do-list/dist)
 
 ## How to Run
 
@@ -45,7 +45,7 @@ To run the project do the following:
 
 - GitHub: [@PeteUgwu](https://github.com/PeteUgwu)
 - Twitter: [@Petrus4Charles](https://twitter.com/Petrus4Charles)
-- LinkedIn: [/peter-ugwu-15a3a724b/](https://www.linkedin.com/in/peter-ugwu-15a3a724b/)
+- LinkedIn: [/peteugwu/](https://www.linkedin.com/in/peteugwu/)
 
 ## 🤝 Contributing
 

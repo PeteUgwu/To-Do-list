@@ -1,8 +1,8 @@
 ![](https://img.shields.io/badge/Microverse-blueviolet)
 
-# To Do list: Interactions
+# To Do list
 
-> This project is built using webpack and served by a webpack dev server.
+> It is a website that serves as a tool to organize your day. It simply allows you to add lists of things you need to do,  display these lists, and give you the option of deleting them singly or marking each or all as complete. It also allows you to edit the displayed list and retain its position. The data passed during the above activities are prese
 
 ## Built With
 

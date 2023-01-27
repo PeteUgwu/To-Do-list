@@ -25,7 +25,7 @@ Web Browser (Google Chrome recommended)
 
 ## Live Demo
 
-[Live Demo Link](peteugwu.github.io/To-Do-list/dist)
+[Live Demo Link](https://peteugwu.github.io/To-Do-list/dist/)
 
 ## How to Run
 

@@ -1,4 +1,3 @@
-/* eslint-disable quotes */
 import { check } from "./check.js";
 
 let isEdit = false;

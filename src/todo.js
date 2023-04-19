@@ -1,4 +1,4 @@
-import { check } from "./check.js";
+import { check } from './check.js';
 
 let isEdit = false;
 let editId = null;
@@ -6,18 +6,18 @@ let editId = null;
 export default class Display {
   static getTodo = () => {
     let Todo;
-    if (localStorage.getItem("todo") == null) {
+    if (localStorage.getItem('todo') == null) {
       Todo = [];
     } else {
-      Todo = JSON.parse(localStorage.getItem("todo"));
+      Todo = JSON.parse(localStorage.getItem('todo'));
     }
     return Todo;
   };
 
   static addRemoveEvent = () => {
-    const trash = document.querySelectorAll(".trash");
+    const trash = document.querySelectorAll('.trash');
     trash.forEach((task, i) => {
-      task.addEventListener("click", (ev) => {
+      task.addEventListener('click', (ev) => {
         ev.preventDefault();
         this.removeTodo(i);
       });
@@ -26,15 +26,15 @@ export default class Display {
 
   static checkEvent = () => {
     const toDos = Display.getTodo();
-    const todoCheck = document.querySelectorAll(".to-do-check");
+    const todoCheck = document.querySelectorAll('.to-do-check');
     todoCheck.forEach((task, i) => {
       const findTodo = toDos.find((item) => i === item.index);
-      task.addEventListener("change", (ev) => {
+      task.addEventListener('change', (ev) => {
         ev.preventDefault();
         if (!findTodo.completed) {
-          ev.target.parentElement.style.textDecoration = "line-through";
+          ev.target.parentElement.style.textDecoration = 'line-through';
         } else {
-          ev.target.parentElement.style.textDecoration = "none";
+          ev.target.parentElement.style.textDecoration = 'none';
         }
         check(toDos, i);
       });
@@ -49,15 +49,15 @@ export default class Display {
         item.index -= 1;
       }
     });
-    localStorage.setItem("todo", JSON.stringify(toDos));
+    localStorage.setItem('todo', JSON.stringify(toDos));
     this.loadTodo(toDos);
   };
 
   static loadTodo = (item) => {
-    const InnerTodo = document.querySelector(".todo-inner");
-    let display = " ";
+    const InnerTodo = document.querySelector('.todo-inner');
+    let display = ' ';
     item.forEach((elem, i) => {
-      const completed = elem.completed ? "completed" : "";
+      const completed = elem.completed ? 'completed' : '';
       display += `
       <div class="todo-check flex">
       <div class="flex-2 checkbox ${completed}">
@@ -84,8 +84,8 @@ export default class Display {
   };
 
   static addTodo = () => {
-    const text = document.querySelector(".type-task").value;
-    if (text !== "") {
+    const text = document.querySelector('.type-task').value;
+    if (text !== '') {
       const toDos = Display.getTodo();
       const newInput = { text, completed: false, index: toDos.length };
       const editInput = { text, completed: false, index: editId };
@@ -93,32 +93,32 @@ export default class Display {
       if (isEdit) {
         const singleTodo = toDos.find((item, index) => index === editId);
         Object.assign(singleTodo, editInput);
-        localStorage.setItem("todo", JSON.stringify(toDos));
+        localStorage.setItem('todo', JSON.stringify(toDos));
         this.loadTodo(toDos);
         isEdit = false;
         editId = null;
-        document.querySelector(".type-task").value = "";
+        document.querySelector('.type-task').value = '';
         return;
       }
       toDos.push(newInput);
-      localStorage.setItem("todo", JSON.stringify(toDos));
+      localStorage.setItem('todo', JSON.stringify(toDos));
       this.loadTodo(toDos);
-      document.querySelector(".type-task").value = "";
+      document.querySelector('.type-task').value = '';
     }
   };
 
   static editTodo = (id) => {
     const toDos = Display.getTodo();
     const findTodo = toDos.find((item, index) => index === id);
-    document.querySelector(".type-task").value = findTodo.text;
+    document.querySelector('.type-task').value = findTodo.text;
     isEdit = true;
     editId = id;
   };
 
   static editEvent = () => {
-    const editButton = document.querySelectorAll(".edit-btn");
+    const editButton = document.querySelectorAll('.edit-btn');
     editButton.forEach((task, i) => {
-      task.addEventListener("click", (ev) => {
+      task.addEventListener('click', (ev) => {
         ev.preventDefault();
         this.editTodo(i);
       });

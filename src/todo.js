@@ -1,4 +1,4 @@
-import { check } from './check.js';
+import { check } from './check';
 
 let isEdit = false;
 let editId = null;

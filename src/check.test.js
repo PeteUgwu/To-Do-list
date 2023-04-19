@@ -1,7 +1,7 @@
 /** @jest-environment jsdom */
 
-import Display from './todo.js';
-import { check, clearCompleted } from './check.js';
+import Display from './todo';
+import { check, clearCompleted } from './check';
 
 describe('Edit task', () => {
   beforeEach(() => {

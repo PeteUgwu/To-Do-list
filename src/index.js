@@ -1,6 +1,6 @@
 import './style.css';
-import Display from './todo.js';
-import { clearCompleted } from './check.js';
+import Display from './todo';
+import { clearCompleted } from './check';
 
 const enterBtn = document.querySelector('.enter-btn');
 const clearCheck = document.querySelector('.clear');
